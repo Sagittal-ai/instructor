@@ -161,6 +161,9 @@ class OpenAISchema(BaseModel):
 
         assert isinstance(completion, Message)
 
+        if completion.stop_reason == 'max_tokens':
+            raise IncompleteOutputException(last_completion=completion)
+
         text = completion.content[0].text
         extra_text = extract_json_from_codeblock(text)
 
