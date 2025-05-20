@@ -99,6 +99,11 @@ def handle_templating(
     Raises:
         ValueError: If no recognized message format is found in kwargs.
     """
+
+
+    # DISABLE TEMPLATING FOR SAGITTAL
+    return kwargs
+
     if not context:
         return kwargs
 
