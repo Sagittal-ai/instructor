@@ -89,6 +89,7 @@ async def process_response_async(
         model = await response_model.from_streaming_response_async(
             response,
             mode=mode,
+            context=validation_context,
         )
         return model
 
@@ -164,6 +165,7 @@ def process_response(
         model = response_model.from_streaming_response(
             response,
             mode=mode,
+            context=validation_context,
         )
         return model
 
